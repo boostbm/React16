@@ -5,54 +5,41 @@ import { Component } from 'react';
 
 
 class App extends Component {
-  constructor(props) {
-    super(props);
-    console.log('constructor')
-  }
-
-  componentWillMount() {
-    console.log('will mount')
-  }
-
-  componentDidMount() {
-    console.log('mounted')
-  }
 
 
   state = {
-    toggle: true
-  } 
-  toggle = () => {
-    this.setState({
-      toggle: !this.state.toggle
-    })
-    
+    input: 'Hello'
   }
 
-    render() {
+  updateInput = (event) => {
+    this.setState({
+      input: event.target.value
+    })
+  }
+
+  submit = () => {
+    console.log(this.text.value)
+    }
+    
+  
+
+render() {
   return (
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
-          <Welcome text="Welcome to React JS"></Welcome>Edit <code>src/App.js</code> and save to reload.
+          <Welcome text="Welcome to React JS"></Welcome>
         </p>
-        {this.state.toggle && 
-        <p>This should show and Hide</p>
-        } 
-        <button onClick={this.toggle}>Show / Hide</button>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <input type="text" onChang={this.updateInput} value={this.state.input}/>
+        <input type="text" ref={(input) => this.text = input} />
+       
+        <button onClick={this.submit}>Show Value</button>
+       
       </header>
     </div>
-  );
-}
+   );
+  }
 }
 
 
