@@ -31,7 +31,8 @@ render() {
         <p>
           <Welcome text="Welcome to React JS"></Welcome>
         </p>
-        <input type="text" onChang={this.updateInput} value={this.state.input}/>
+        <h3>{this.state.input}</h3>
+        <input type="text" onChange={this.updateInput} value={this.state.input}/>
         <input type="text" ref={(input) => this.text = input} />
        
         <button onClick={this.submit}>Show Value</button>
